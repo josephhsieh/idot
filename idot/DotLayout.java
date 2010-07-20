@@ -27,8 +27,8 @@ public class DotLayout extends Layout {
 	public static final String GRAPH = DotDisplay.GRAPH_GROUP;
 
 	/** minimum and maximum layout bounds found */
-	int minx, miny;
-	int maxx, maxy;
+	double minx, miny;
+	double maxx, maxy;
 
 	
 	public DotLayout() {
@@ -144,8 +144,8 @@ public class DotLayout extends Layout {
 			
 			for(int i=2; i< points.length; i++) {
 				int comma = points[i].indexOf(',');
-				int x = Integer.parseInt(points[i].substring(0, comma));
-				int y = - Integer.parseInt(points[i].substring(comma+1));
+				double x = Double.parseDouble(points[i].substring(0, comma));
+				double y = - Double.parseDouble(points[i].substring(comma+1));
 				
 				coords[(i-1)*2] = x;
 				coords[(i-1)*2+1] = y;
@@ -168,8 +168,8 @@ public class DotLayout extends Layout {
 			if(lp != null) {
 				String[] xy = lp.split(",");
 
-				int x = Integer.parseInt(xy[0]);
-				int y = - Integer.parseInt(xy[1]); // all Y coords mirrored
+				double x = Double.parseDouble(xy[0]);
+				double y = - Double.parseDouble(xy[1]); // all Y coords mirrored
 
 				if (Config.print) System.out.println("edge has label at " + x + "," + y);
 
